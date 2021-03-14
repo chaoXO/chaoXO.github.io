@@ -1,7 +1,128 @@
+# Site
+title: chaoXO的避难所
+subtitle: ''
+description: ''
+keywords:
+author: chaoXO
+language: zh-CN
+timezone: ''
+
 avatar:
   url: /images/avatar.jpg # 你的头像图片地址
   rounded: true
   opacity: 1
 
+
+
 colors:
   primary: "#000000"
+
+# 标签配色
+tags:
+  Vue: "#4fc08d"
+  Hexo: "#0E834D"
+  CSS: "#5298d1"
+  Node.js: "#026E00"
+  Git: "#F14E32"
+  React: "#61dafb"
+  Python: "#3776ab"
+  PHP: "#8892BF"
+  VS Code: "#0066B8"
+  JavaScript: "#F4DF4F"
+  TypeScript: "#317AC6"
+  Laravel: "#F4645F"
+# 分类配色
+categories:
+  笔记: dimgray
+
+# 头部资源
+head:
+  css:
+    example: //example.min.css
+  js:
+    base:
+    async:
+    defer:
+
+# 网站图标
+# favicon: /favicon.ico
+
+# 设置CDN
+cdn:
+  pre: https://cdn.jsdelivr.net/gh/chaoXO/chaoXO.github.io
+  # pre: https://cdn.jsdelivr.net/gh/YunYouJun/yunyoujun.github.io
+  css:
+    yun-markdown-css: https://cdn.jsdelivr.net/npm/star-markdown-css@0.1.24/dist/yun/yun-markdown.min.css
+    # github-markdown-css: https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.css
+  js:
+    base:
+    async:
+      iconfont: //at.alicdn.com/t/font_1140697_ed8vp4atwoj.js
+    defer:
+
+# Social Links.
+social:
+  # - name: RSS
+  #   # set rss in your root config
+  #   # https://github.com/hexojs/hexo-generator-feed
+  #   link: /atom.xml # config.feed.path
+  #   icon: icon-rss-line
+  #   color: orange
+  - name: QQ 群号 939807583
+    # https://isux.tencent.com/wp-content/uploads/2016/05/20160512101222609.pdf
+    link: https://qm.qq.com/cgi-bin/qm/qr?k=qC1oiV3QH8wWkREJsIxIPINqHiUveu2A&jump_from=webapi
+    icon: icon-qq-line
+    color: "#12B7F5"
+  - name: GitHub
+    link: https://github.com/chaoXO
+    icon: icon-github-line
+    color: "#6e5494"
+  # - name: 微博
+  #   link: https://weibo.com/jizhideyunyoujun
+  #   icon: icon-weibo-line
+  #   color: "#E6162D"
+  # - name: 豆瓣
+  #   link: https://www.douban.com/people/yunyoujun/
+  #   icon: icon-douban-line
+  #   color: "#007722"
+  - name: 网易云音乐
+    link: http://music.163.com/playlist?id=149912721&userid=120729515
+    icon: icon-netease-cloud-music-line
+    color: "#C20C0C"
+  - name: 知乎
+    link: https://www.zhihu.com/people/a-da-38-98
+    icon: icon-zhihu-line
+    color: "#0084FF"
+  - name: 哔哩哔哩
+    link: https://space.bilibili.com/3377000
+    icon: icon-bilibili-line
+    color: "#FF8EB3"
+  # - name: POPI
+  #   link: https://www.popiapp.cn/elpsycn
+  #   icon: icon-questionnaire-line
+  #   color: "#525252"
+  # - name: 微信公众号
+  #   link: https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/about/white-qrcode-and-search.jpg
+  #   icon: icon-wechat-2-line
+  #   color: "#1AAD19"
+  # - name: Twitter
+  #   link: https://twitter.com/YunYouJun
+  #   icon: icon-twitter-line
+  #   color: "#1da1f2"
+  # - name: Telegram
+  #   link: https://t.me/YunYouJun
+  #   icon: icon-telegram-line
+  #   color: "#0088CC"
+  # - name: Telegram Channel
+  #   link: https://t.me/elpsycn
+  #   # icon: icon-telegram-fill
+  #   icon: icon-telegram-line
+  #   color: "#0088CC"
+  - name: E-Mail
+    link: mailto:2485403898@qq.com
+    icon: icon-mail-line
+    color: "#8E71C1"
+  # - name: Travelling
+  #   link: https://travellings.now.sh/
+  #   icon: icon-send-plane-2-line
+  #   color: black
