@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>chaoXO的避难所</title>
+  <icon>http://example.com/icon.png</icon>
+  
+  <link href="http://example.com/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/"/>
+  <updated>2021-03-14T08:03:35.587Z</updated>
+  <id>http://example.com/</id>
+  
+  <author>
+    <name>chaoXO</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>helloworld</title>
+    <link href="http://example.com/2021/03/14/helloworld/"/>
+    <id>http://example.com/2021/03/14/helloworld/</id>
+    <published>2021-03-14T08:03:35.000Z</published>
+    <updated>2021-03-14T08:03:35.587Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://example.com/2021/03/14/hello-world/"/>
+    <id>http://example.com/2021/03/14/hello-world/</id>
+    <published>2021-03-14T06:07:59.737Z</published>
+    <updated>2021-03-14T08:10:15.823Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;一级标题&quot;&gt;&lt;a href=&quot;#一级标题&quot; class=&quot;headerlink&quot; title=&quot;一级标题&quot;&gt;&lt;/a&gt;一级标题&lt;/h1&gt;&lt;h2 id=&quot;二级标题&quot;&gt;&lt;a href=&quot;#二级标题&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
