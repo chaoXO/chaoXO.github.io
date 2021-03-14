@@ -7,10 +7,20 @@ author: 啊哒XD
 language: zh-CN
 timezone: ''
 
+
+# Sidebar Avatar
 avatar:
+  enable: true
   url: /images/avatar.jpg # 你的头像图片地址
+  # If true, the avatar would be dispalyed in circle.
   rounded: true
+  # The value of opacity should be choose from 0 to 1 to set the opacity of the avatar.
   opacity: 1
+  mickey_mouse: false
+  status:
+    enable: true
+    emoji: 😊
+    message: 永远相信美好的事情即将发生
 
 
 
@@ -62,13 +72,7 @@ cdn:
 
 # Social Links.
 social:
-  # - name: RSS
-  #   # set rss in your root config
-  #   # https://github.com/hexojs/hexo-generator-feed
-  #   link: /atom.xml # config.feed.path
-  #   icon: icon-rss-line
-  #   color: orange
-  - name: QQ 群号 939807583
+  - name: QQ群号:939807583
     # https://isux.tencent.com/wp-content/uploads/2016/05/20160512101222609.pdf
     link: https://qm.qq.com/cgi-bin/qm/qr?k=qC1oiV3QH8wWkREJsIxIPINqHiUveu2A&jump_from=webapi
     icon: icon-qq-line
@@ -77,14 +81,6 @@ social:
     link: https://github.com/chaoXO
     icon: icon-github-line
     color: "#6e5494"
-  # - name: 微博
-  #   link: https://weibo.com/jizhideyunyoujun
-  #   icon: icon-weibo-line
-  #   color: "#E6162D"
-  # - name: 豆瓣
-  #   link: https://www.douban.com/people/yunyoujun/
-  #   icon: icon-douban-line
-  #   color: "#007722"
   - name: 网易云音乐
     link: http://music.163.com/playlist?id=149912721&userid=120729515
     icon: icon-netease-cloud-music-line
@@ -97,6 +93,25 @@ social:
     link: https://space.bilibili.com/3377000
     icon: icon-bilibili-line
     color: "#FF8EB3"
+  - name: E-Mail
+    link: mailto:2485403898@qq.com
+    icon: icon-mail-line
+    color: "#8E71C1"
+  # - name: RSS
+  #   # set rss in your root config
+  #   # https://github.com/hexojs/hexo-generator-feed
+  #   link: /atom.xml # config.feed.path
+  #   icon: icon-rss-line
+  #   color: orange
+  # - name: 微博
+  #   link: https://weibo.com/jizhideyunyoujun
+  #   icon: icon-weibo-line
+  #   color: "#E6162D"
+  # - name: 豆瓣
+  #   link: https://www.douban.com/people/yunyoujun/
+  #   icon: icon-douban-line
+  #   color: "#007722"
+
   # - name: POPI
   #   link: https://www.popiapp.cn/elpsycn
   #   icon: icon-questionnaire-line
@@ -118,14 +133,7 @@ social:
   #   # icon: icon-telegram-fill
   #   icon: icon-telegram-line
   #   color: "#0088CC"
-  - name: E-Mail
-    link: mailto:2485403898@qq.com
-    icon: icon-mail-line
-    color: "#8E71C1"
-  # - name: Travelling
-  #   link: https://travellings.now.sh/
-  #   icon: icon-send-plane-2-line
-  #   color: black
+
 
 
 banner:
@@ -159,3 +167,23 @@ search:
   modal: true
   bg_image: https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/bg/stars-timing-0-blur-30px.jpg
   dark_bg_image: https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/bg/mountain-blur-30px.jpg
+
+# main menu navigation
+menu:
+  home:
+    path: /
+    icon: icon-home-4-line
+  list:
+    - type: archives
+      path: /archives/
+      icon: icon-archive-line
+    - type: categories
+      path: /categories/
+      icon: icon-folder-2-line
+    - type: tags
+      path: /tags/
+      icon: icon-price-tag-3-line
+  custom:
+    title: 文档
+    path: https://yun.yunyoujun.cn
+    icon: icon-settings-line

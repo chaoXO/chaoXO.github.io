@@ -105,7 +105,7 @@ deploy:
   type: git
   repo: 
     github: https://github.com/chaoXO/chaoXO.github.io # 比如：https://github.com/YunYouJun/yunyoujun.github.io
-    gitee: https://gitee.com/chaoXO/chaoXO.gitee.io
-  branch: main # 默认使用 master 分支
+    gitee: git@gitee.com:chaoXO/chaoXO.gitee.io.git
+  branch: master # 默认使用 master 分支
   message: Update Hexo Static Content # 你可以自定义此次部署更新的说明
 
