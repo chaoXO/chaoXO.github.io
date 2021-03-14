@@ -1,9 +1,9 @@
 # Site
-title: chaoXO的避难所
+title: 啊哒XD的避难所
 subtitle: ''
 description: ''
 keywords:
-author: chaoXO
+author: 啊哒XD
 language: zh-CN
 timezone: ''
 
@@ -126,3 +126,36 @@ social:
   #   link: https://travellings.now.sh/
   #   icon: icon-send-plane-2-line
   #   color: black
+
+
+banner:
+  enable: true
+  title: 
+    - 欢迎
+    - 来到
+    - 啊哒XD
+    - 的
+    - blog
+  src: /js/ui/banner.js
+  border: true
+  cloud:
+    enable: true
+    color: "white"
+  go_down:
+    enable: true
+    icon: icon-arrow-down-s-line
+
+
+# 公告 它将显示在所有文章卡片的最上方，标语的下方。
+notice: 
+  enable: false
+  content: Thanks for playing my game.
+
+# mode: light | dark | auto | time
+mode: auto
+
+# search  亮色和暗色时的背景图
+search:
+  modal: true
+  bg_image: https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/bg/stars-timing-0-blur-30px.jpg
+  dark_bg_image: https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/bg/mountain-blur-30px.jpg

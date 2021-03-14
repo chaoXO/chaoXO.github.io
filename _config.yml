@@ -103,21 +103,9 @@ theme: yun
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://github.com/chaoXO/chaoXO.github.io # 比如：https://github.com/YunYouJun/yunyoujun.github.io
+  repo: 
+    github: https://github.com/chaoXO/chaoXO.github.io # 比如：https://github.com/YunYouJun/yunyoujun.github.io
+    gitee: https://gitee.com/chaoXO/chaoXO.gitee.io
   branch: main # 默认使用 master 分支
   message: Update Hexo Static Content # 你可以自定义此次部署更新的说明
 
-# 配置RSS
-feed:
-  enable: true
-  type: atom
-  path: atom.xml
-  limit: 20
-  hub:
-  content:
-  content_limit: 140
-  content_limit_delim: ' '
-  order_by: -date
-  icon: icon.png
-  autodiscovery: true
-  template:
