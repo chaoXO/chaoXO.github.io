@@ -43,17 +43,18 @@ render_drafts: false
 post_asset_folder: false
 relative_link: false
 future: true
+# 语法高亮
 highlight:
-  enable: true
+  enable: false
   line_number: true
   auto_detect: false
   tab_replace: ''
   wrap: true
   hljs: false
 prismjs:
-  enable: false
+  enable: true
   preprocess: true
-  line_number: true
+  line_number: false
   tab_replace: ''
 
 # Home page setting
@@ -105,7 +106,7 @@ deploy:
   type: git
   repo: 
     github: https://github.com/chaoXO/chaoXO.github.io # 比如：https://github.com/YunYouJun/yunyoujun.github.io
-    gitee: git@gitee.com:chaoXO/chaoXO.gitee.io.git
+    gitee: git@gitee.com:chaoXO/chaoXO.git
   branch: master # 默认使用 master 分支
   message: Update Hexo Static Content # 你可以自定义此次部署更新的说明
 
