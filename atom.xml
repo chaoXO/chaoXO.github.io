@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-03-14T10:03:42.341Z</updated>
+  <updated>2021-03-15T15:06:09.487Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于为什么要开始写Hexo博客的一些事</title>
+    <link href="http://example.com/2021/03/15/post/"/>
+    <id>http://example.com/2021/03/15/post/</id>
+    <published>2021-03-15T09:19:48.000Z</published>
+    <updated>2021-03-15T15:06:09.487Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>    开始想着说写技术博客的想法是之前白嫖了抖音上宣传代码培训的课，虽然一开始就没打算报班，只是试着听听看，但是还是有收获。比如他们会让自己的学员去定期写博客总结（一般是写在CSDN），我觉得这是个很好的习惯，因为互联网技术其实很多很繁杂，加上自己本身记忆力不好，如果写下来会对自己有很大的帮助同时也可锻炼下写作表达，就像很多营销号推荐的费曼学习法，把掌握的知识再向别人讲述一遍，就会有更深刻的记忆，也会反思自己在理解上有哪些偏差,同时做整理。</code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;pre&gt;&lt;code&gt;    开始想着说写技术博客的想法是之前白嫖了抖音上宣传代码培训的课，虽然一开始就
+没打算报班，只是试着听听看，但是还是有收获。比如他们会让自己的学员去定期写博客
+总结（一般是写在CSDN），我觉得这是个很好的习惯，因为互联网技术其实很多很繁杂，
+加上自己本</summary>
+      
+    
+    
+    
+    <category term="日常" scheme="http://example.com/categories/%E6%97%A5%E5%B8%B8/"/>
+    
+    
+    <category term="github" scheme="http://example.com/tags/github/"/>
+    
+  </entry>
   
   <entry>
     <title></title>
@@ -30,19 +57,6 @@
       
     <summary type="html">&lt;h1 id=&quot;一级标题&quot;&gt;&lt;a href=&quot;#一级标题&quot; class=&quot;headerlink&quot; title=&quot;一级标题&quot;&gt;&lt;/a&gt;一级标题&lt;/h1&gt;&lt;h2 id=&quot;二级标题&quot;&gt;&lt;a href=&quot;#二级标题&quot; class=&quot;headerlink&quot; title=&quot;二级标题&quot;&gt;&lt;/a</summary>
       
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>helloworld</title>
-    <link href="http://example.com/2021/03/14/helloworld/"/>
-    <id>http://example.com/2021/03/14/helloworld/</id>
-    <published>2021-03-14T08:03:35.000Z</published>
-    <updated>2021-03-14T08:03:35.587Z</updated>
-    
     
     
     
