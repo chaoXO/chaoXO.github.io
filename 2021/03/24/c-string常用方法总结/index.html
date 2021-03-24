@@ -1,0 +1,234 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#000000"><meta name="author" content="啊哒XD"><meta name="copyright" content="啊哒XD"><meta name="generator" content="Hexo 5.4.0"><meta name="theme" content="hexo-theme-yun"><title>c++ string常用方法总结 | 啊哒XD的避难所</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/star-markdown-css@0.1.24/dist/yun/yun-markdown.min.css"><script src="//at.alicdn.com/t/font_1140697_ed8vp4atwoj.js" async></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>document.addEventListener("DOMContentLoaded", () => {
+  [".post-card",".post-content img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
+});
+</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@latest/themes/prism.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@latest/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#000000"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="https://cdn.jsdelivr.net/gh/chaoXO/chaoXO.github.io/css/hexo-theme-yun.css" as="style"><link rel="preload" href="https://cdn.jsdelivr.net/gh/chaoXO/chaoXO.github.io/js/utils.js" as="script"><link rel="preload" href="https://cdn.jsdelivr.net/gh/chaoXO/chaoXO.github.io/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/chaoXO/chaoXO.github.io/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+    const Yun = window.Yun || {};
+    window.CONFIG = {"hostname":"chaoxo.github.io","root":"/","title":["欢迎","来到","啊哒XD","的","blog"],"version":"1.5.2","mode":"auto","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms"},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"https://v1.hitokoto.cn","hitokoto":true},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
+  </script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/chaoXO/chaoXO.github.io/css/hexo-theme-yun.css"><script src="https://cdn.jsdelivr.net/gh/chaoXO/chaoXO.github.io/js/utils.js"></script><script src="https://cdn.jsdelivr.net/gh/chaoXO/chaoXO.github.io/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="啊哒XD的避难所" type="application/atom+xml"><link rel="stylesheet" href="//example.min.css"><meta name="description" content="c++ string常用方法总结 因为自己刷题的时候老记不住c++的一些函数方法的使用，总结一下强化记忆  string的使用  1. string的构造 string str：生成空字符串 string s(str)：生成字符串为str的复制品 string s(str, str_begin, str_len)：将字符串str中从下标strbegin开始、长度为strlen的部分作为字符串初值">
+<meta property="og:type" content="article">
+<meta property="og:title" content="c++ string常用方法总结">
+<meta property="og:url" content="http://chaoxo.github.io/2021/03/24/c-string%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="啊哒XD的避难所">
+<meta property="og:description" content="c++ string常用方法总结 因为自己刷题的时候老记不住c++的一些函数方法的使用，总结一下强化记忆  string的使用  1. string的构造 string str：生成空字符串 string s(str)：生成字符串为str的复制品 string s(str, str_begin, str_len)：将字符串str中从下标strbegin开始、长度为strlen的部分作为字符串初值">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-03-24T11:45:28.000Z">
+<meta property="article:modified_time" content="2021-03-24T11:47:10.331Z">
+<meta property="article:author" content="啊哒XD">
+<meta property="article:tag" content="c++">
+<meta name="twitter:card" content="summary"><script src="/js/ui/mode.js"></script></head><body><script defer src="https://cdn.jsdelivr.net/npm/animejs@latest"></script><script defer src="https://cdn.jsdelivr.net/gh/chaoXO/chaoXO.github.io/js/ui/fireworks.js"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="https://cdn.jsdelivr.net/gh/chaoXO/chaoXO.github.io/js/sidebar.js"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="Table of Contents"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-list-ordered"></use></svg></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="Overview"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-passport-line"></use></svg></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="啊哒XD"><img width="96" loading="lazy" src="https://cdn.jsdelivr.net/gh/chaoXO/chaoXO.github.io/images/avatar.jpg" alt="啊哒XD"><span class="site-author-status" title="永远相信美好的事情即将发生">😊</span></a><div class="site-author-name"><a href="/about/">啊哒XD</a></div><span class="site-name">啊哒XD的避难所</span><sub class="site-subtitle"></sub><div class="site-desciption"></div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="Home"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home-4-line"></use></svg></span></a><div class="site-state-item"><a href="/archives/" title="Archives"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-archive-line"></use></svg></span><span class="site-state-item-count">2</span></a></div><div class="site-state-item"><a href="/categories/" title="Categories"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-2-line"></use></svg></span><span class="site-state-item-count">1</span></a></div><div class="site-state-item"><a href="/tags/" title="Tags"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="site-state-item-count">2</span></a></div><a class="site-state-item hty-icon-button" target="_blank" rel="noopener" href="https://yun.yunyoujun.cn" title="文档"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-settings-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://qm.qq.com/cgi-bin/qm/qr?k=qC1oiV3QH8wWkREJsIxIPINqHiUveu2A&amp;jump_from=webapi" title="QQ群号:939807583" target="_blank" style="color:#12B7F5"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-qq-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/chaoXO" title="GitHub" target="_blank" style="color:#6e5494"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-github-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="http://music.163.com/playlist?id=149912721&amp;userid=120729515" title="网易云音乐" target="_blank" style="color:#C20C0C"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-netease-cloud-music-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://www.zhihu.com/people/a-da-38-98" title="知乎" target="_blank" style="color:#0084FF"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-zhihu-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://space.bilibili.com/3377000" title="哔哩哔哩" target="_blank" style="color:#FF8EB3"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-bilibili-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="mailto:2485403898@qq.com" title="E-Mail" target="_blank" style="color:#8E71C1"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-mail-line"></use></svg></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/links/" title="我的小伙伴们" style="color:dodgerblue"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-genderless-line"></use></svg></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-contrast-2-line"></use></svg></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#c-string%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93"><span class="toc-number">1.</span> <span class="toc-text">c++ string常用方法总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#string%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">1.1.</span> <span class="toc-text">string的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-string%E7%9A%84%E6%9E%84%E9%80%A0"><span class="toc-number">1.1.1.</span> <span class="toc-text">1. string的构造</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-string%E7%9A%84%E5%A4%A7%E5%B0%8F%E5%92%8C%E5%AE%B9%E9%87%8F"><span class="toc-number">1.1.2.</span> <span class="toc-text">2. string的大小和容量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-string%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%AF%94%E8%BE%83"><span class="toc-number">1.1.3.</span> <span class="toc-text">3. string字符串的比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-string%E7%9A%84%E6%8F%92%E5%85%A5%E5%92%8C%E6%8B%BC%E6%8E%A5%E5%92%8C%E5%88%A0%E9%99%A4"><span class="toc-number">1.1.4.</span> <span class="toc-text">4. string的插入和拼接和删除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-string%E7%9A%84%E9%81%8D%E5%8E%86"><span class="toc-number">1.1.5.</span> <span class="toc-text">5. string的遍历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-string%E7%9A%84%E5%AD%97%E7%AC%A6%E6%9B%BF%E6%8D%A2"><span class="toc-number">1.1.6.</span> <span class="toc-text">6. string的字符替换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-string%E7%9A%84%E5%A4%A7%E5%B0%8F%E5%86%99%E5%8F%98%E6%8D%A2"><span class="toc-number">1.1.7.</span> <span class="toc-text">7. string的大小写变换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-string%E7%9A%84%E6%9F%A5%E6%89%BE"><span class="toc-number">1.1.8.</span> <span class="toc-text">8. string的查找</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9D%87%E8%BF%94%E5%9B%9E%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%89%BE%E5%88%B0%E7%9A%84"><span class="toc-number">1.1.8.1.</span> <span class="toc-text">均返回第一个找到的</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-string%E7%9A%84%E6%8E%92%E5%BA%8F"><span class="toc-number">1.1.9.</span> <span class="toc-text">9. string的排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-string%E7%9A%84%E5%88%86%E5%89%B2-%E6%88%AA%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">1.1.10.</span> <span class="toc-text">10. string的分割&#x2F;截取字符串</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2string%E5%92%8Cint%E7%AD%89%E7%B1%BB%E5%9E%8B%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="toc-number">1.2.</span> <span class="toc-text">字符串string和int等类型的转换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-int%E8%BD%ACstring%EF%BC%88int%E3%80%81long%E3%80%81unsigned%E3%80%81float%E3%80%81double%E3%80%81long-double%EF%BC%89"><span class="toc-number">1.2.1.</span> <span class="toc-text">1. int转string（int、long、unsigned、float、double、long double）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-string%E8%BD%ACint"><span class="toc-number">1.2.2.</span> <span class="toc-text">2. string转int</span></a></li></ol></li></ol></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article"><link itemprop="mainEntityOfPage" href="http://chaoxo.github.io/2021/03/24/c-string%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="啊哒XD"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="啊哒XD的避难所"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">c++ string常用方法总结</h1><div class="post-meta"><div class="post-time" style="display:inline-block"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-line"></use></svg></span> <time title="Created: 2021-03-24 19:45:28" itemprop="dateCreated datePublished" datetime="2021-03-24T19:45:28+08:00">2021-03-24</time></div><div class="post-classify"><span class="post-tag"><a class="tag" href="/tags/c/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">c++</span></a></span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body" style="--smc-primary:#000000;"><h1 id="c-string常用方法总结"><a href="#c-string常用方法总结" class="headerlink" title="c++ string常用方法总结"></a>c++ string常用方法总结</h1><blockquote>
+<p>因为自己刷题的时候老记不住c++的一些函数方法的使用，总结一下强化记忆</p>
+</blockquote>
+<h2 id="string的使用"><a href="#string的使用" class="headerlink" title="string的使用"></a>string的使用</h2><blockquote>
+</blockquote>
+<h3 id="1-string的构造"><a href="#1-string的构造" class="headerlink" title="1. string的构造"></a>1. string的构造</h3><ul>
+<li>string str：生成空字符串</li>
+<li>string s(str)：生成字符串为str的复制品</li>
+<li>string s(str, str_begin, str_len)：将字符串str中从下标strbegin开始、长度为strlen的部分作为字符串初值</li>
+<li>string s(cstr, char_len)：以C_string类型cstr的前char_len个字符串作为字符串s的初值</li>
+<li>string s(num, char)：生成num个c字符的字符串</li>
+<li>string s(str, str_index)：将字符串str中从下标str_index开始到字符串结束的位置作为字符串初值</li>
+</ul>
+<pre class="language-c++" data-language="c++"><code class="language-c++">string str1;                 &#x2F;&#x2F;生成空字符串
+string str2(&quot;123456789&quot;);    &#x2F;&#x2F;生成&quot;1234456789&quot;的复制品
+string str3(&quot;12345&quot;, 0, 3);  &#x2F;&#x2F;结果为&quot;123&quot;
+string str4(&quot;012345&quot;, 5);    &#x2F;&#x2F;结果为&quot;01234&quot;
+string str5(5, &#39;1&#39;);         &#x2F;&#x2F;结果为&quot;11111&quot;
+string str6(str2, 2);        &#x2F;&#x2F;结果为&quot;3456789&quot;</code></pre>
+
+<h3 id="2-string的大小和容量"><a href="#2-string的大小和容量" class="headerlink" title="2. string的大小和容量"></a>2. string的大小和容量</h3><ul>
+<li><code>size()</code>和<code>length()</code>：返回string对象的字符个数，他们执行效果相同。</li>
+<li><code>max_size()</code>：返回string对象最多包含的字符数，超出会抛出length_error异常</li>
+<li><code>capacity()</code>：重新分配内存之前，string对象能包含的最大字符数</li>
+</ul>
+<pre class="language-c++" data-language="c++"><code class="language-c++">string str(&quot;1234567&quot;);
+cout &lt;&lt; &quot;size&#x3D;&quot; &lt;&lt; s.size() &lt;&lt; endl;         &#x2F;&#x2F; size&#x3D;7
+cout &lt;&lt; &quot;length&#x3D;&quot; &lt;&lt; s.length() &lt;&lt; endl;     &#x2F;&#x2F; length&#x3D;7
+cout &lt;&lt; &quot;max_size&#x3D;&quot; &lt;&lt; s.max_size() &lt;&lt; endl; &#x2F;&#x2F; max_size&#x3D;4294967294
+cout &lt;&lt; &quot;capacity&#x3D;&quot; &lt;&lt; s.capacity() &lt;&lt; endl; &#x2F;&#x2F; capacity&#x3D;15</code></pre>
+
+<h3 id="3-string字符串的比较"><a href="#3-string字符串的比较" class="headerlink" title="3. string字符串的比较"></a>3. string字符串的比较</h3><ul>
+<li><code>compare()</code> 用于<strong>string字符串</strong>，也可直接用&lt;、&gt;、= 来比大小  </li>
+<li><code>strcmp()</code>  用于 <strong>char字符串</strong></li>
+</ul>
+<pre class="language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+int main()&#123;
+    string str1&#x3D;&quot;hello&quot;;
+    cout&lt;&lt;str1.compare(&quot;helloo&quot;)&lt;&lt;endl;&#x2F;&#x2F;返回-1； 
+    cout&lt;&lt;str1.compare(&quot;hello&quot;)&lt;&lt;endl;&#x2F;&#x2F;返回0 ； 
+    cout&lt;&lt;str1.compare(&quot;hell&quot;)&lt;&lt;endl;&#x2F;&#x2F;返回1； </code></pre>
+
+<pre class="language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+using namespace std;
+int main()&#123;
+    char* str1&#x3D;&quot;hello&quot;;
+    char* str2&#x3D;&quot;hell&quot;;
+    char *str3&#x3D;&quot;helloo&quot;;
+    char *str4&#x3D;&quot;hello&quot;;
+    
+    &#x2F;&#x2F;原型extern int strcmp(const char *s1,const char *s2);
+    cout&lt;&lt;strcmp(str1,str2)&lt;&lt;endl;&#x2F;&#x2F;返回1； 
+    cout&lt;&lt;strcmp(str1,str3)&lt;&lt;endl;&#x2F;&#x2F;返回-1； 
+    cout&lt;&lt;strcmp(str1,str4)&lt;&lt;endl;&#x2F;&#x2F;返回0. 
+&#125; </code></pre>
+
+<h3 id="4-string的插入和拼接和删除"><a href="#4-string的插入和拼接和删除" class="headerlink" title="4. string的插入和拼接和删除"></a>4. string的插入和拼接和删除</h3><ul>
+<li><code>push_back()</code> 用于尾插</li>
+<li><code>insert()</code>  用于指定位置插入</li>
+<li><code>append()</code> 、<code>+</code> 用于拼接</li>
+<li><code>erase()</code> 用于删除</li>
+</ul>
+<pre class="language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F; 尾插一个字符
+s1.push_back(&#39;a&#39;);
+s1.push_back(&#39;b&#39;);
+s1.push_back(&#39;c&#39;);
+cout&lt;&lt;&quot;s1:&quot;&lt;&lt;s1&lt;&lt;endl; &#x2F;&#x2F; s1:abc
+
+&#x2F;&#x2F; insert(pos,char):在制定的位置pos前插入字符char
+s1.insert(s1.begin(),&#39;1&#39;);
+cout&lt;&lt;&quot;s1:&quot;&lt;&lt;s1&lt;&lt;endl; &#x2F;&#x2F; s1:1abc
+
+&#x2F;&#x2F;方法一：append()
+string s1(&quot;abc&quot;);
+s1.append(&quot;def&quot;);
+cout&lt;&lt;&quot;s1:&quot;&lt;&lt;s1&lt;&lt;endl; &#x2F;&#x2F; s1:abcdef
+
+&#x2F;&#x2F; 方法二：+ 操作符
+string s2 &#x3D; &quot;abc&quot;;
+&#x2F;*s2 +&#x3D; &quot;def&quot;;*&#x2F;
+string s3 &#x3D; &quot;def&quot;;
+s2 +&#x3D; s3.c_str();
+cout&lt;&lt;&quot;s2:&quot;&lt;&lt;s2&lt;&lt;endl; &#x2F;&#x2F; s2:abcdef
+
+string s1 &#x3D; &quot;123456789&quot;;
+
+s1.erase(s1.begin() + 1);                 &#x2F;&#x2F; 结果：13456789
+s1.erase(s1.begin() + 1, s1.end() - 2);   &#x2F;&#x2F; 结果：189   （左闭右开）
+s1.erase(1,6);                            &#x2F;&#x2F; 结果：189</code></pre>
+
+<h3 id="5-string的遍历"><a href="#5-string的遍历" class="headerlink" title="5. string的遍历"></a>5. string的遍历</h3><ul>
+<li>正向迭代器 str.begin()、str.end()</li>
+<li>反向迭代器 str.rbegin()、str.rend()</li>
+</ul>
+<pre class="language-c++" data-language="c++"><code class="language-c++">string s1(&quot;abcdef&quot;);
+
+&#x2F;&#x2F; 正向迭代器
+string::iterator iter &#x3D; s1.begin();
+for( ; iter &lt; s1.end() ; iter++)
+&#123;
+    cout&lt;&lt;*iter;
+&#125;
+cout&lt;&lt;endl;   &#x2F;&#x2F;abcdef
+
+&#x2F;&#x2F; 反向迭代器
+string::reverse_iterator riter &#x3D; s1.rbegin();
+for( ; riter &lt; s1.rend() ; riter++)
+&#123;
+    cout&lt;&lt;*riter;
+&#125;
+cout&lt;&lt;endl;  &#x2F;&#x2F;fedcba</code></pre>
+
+<h3 id="6-string的字符替换"><a href="#6-string的字符替换" class="headerlink" title="6. string的字符替换"></a>6. string的字符替换</h3><ul>
+<li><code>replace()</code> 使用</li>
+</ul>
+<pre class="language-c++" data-language="c++"><code class="language-c++">string s1(&quot;hello,world!&quot;);
+
+s1.replace(6, 5, &quot;girl&quot;);                       &#x2F;&#x2F; 结果：hello,girl.
+s1.replace(s1.size() - 1, 1, 1, &#39;.&#39;);           &#x2F;&#x2F; 结果：hello,world.
+s1.replace(s1.begin(), s1.begin() + 5, &quot;boy&quot;);  &#x2F;&#x2F; 结果：boy,girl.</code></pre>
+
+<h3 id="7-string的大小写变换"><a href="#7-string的大小写变换" class="headerlink" title="7. string的大小写变换"></a>7. string的大小写变换</h3><ul>
+<li><code>tolower(char)</code> 和 <code>toupper(char)</code> <strong>用于char</strong></li>
+<li><code>transform(_InIt _First, _InIt _Last, _OutIt _Dest, _Fn1 _Func)</code> <strong>用于string</strong></li>
+</ul>
+<pre class="language-c++" data-language="c++"><code class="language-c++">string s &#x3D; &quot;ABCDEFG&quot;;
+for( int i &#x3D; 0; i &lt; s.size(); i++ )
+&#123;
+    s[i] &#x3D; tolower(s[i]);
+&#125; 
+cout &lt;&lt; s &lt;&lt; endl;  &#x2F;&#x2F;abcdefg
+
+transform(s.begin(), s.end(), s.begin(), ::toupper);  &#x2F;&#x2F; 用于string toupper&#x2F;tolower
+cout &lt;&lt; s &lt;&lt; endl;  &#x2F;&#x2F;&quot;ABCDEFG&quot;</code></pre>
+
+<h3 id="8-string的查找"><a href="#8-string的查找" class="headerlink" title="8. string的查找"></a>8. string的查找</h3><h4 id="均返回第一个找到的"><a href="#均返回第一个找到的" class="headerlink" title="均返回第一个找到的"></a>均返回第一个找到的</h4><ul>
+<li><code>find()</code> 从头查找一个字符串/字符，返回首字母下标</li>
+<li><code>refind()</code> 从尾查找一个字符串/字符，返回首字母下标</li>
+<li><code>find_first_of()</code> 从前查找 <strong>存在于</strong> 字符串集合内的字符，返回 4(“b”)，下标（字符）</li>
+<li><code>find_first_not_of</code> 从前查找 <strong>不存在于</strong> 字符串集合内的字符，返回下标</li>
+<li><code>find_last_of</code> 从后往前查找 <strong>存在于</strong> 字符串集合内的字符，返回下标</li>
+<li><code>find_last_not_of</code> 从后往前查找 <strong>不存在于</strong> 字符串集合内的字符，返回下标</li>
+</ul>
+<pre class="language-c++" data-language="c++"><code class="language-c++">string s(&quot;dog bird chicken bird cat&quot;);
+&#x2F;&#x2F;字符串查找-----找到后返回首字母在字符串中的下标
+&#x2F;&#x2F; 1. 查找一个字符串
+cout &lt;&lt; s.find(&quot;chicken&quot;) &lt;&lt; endl;        &#x2F;&#x2F; 结果是：9
+
+&#x2F;&#x2F; 2. 从下标为6开始找字符&#39;i&#39;，返回找到的第一个i的下标
+cout &lt;&lt; s.find(&#39;i&#39;, 6) &lt;&lt; endl;            &#x2F;&#x2F; 结果是：11
+
+&#x2F;&#x2F; 3. 从字符串的末尾开始查找字符串，返回的还是首字母在字符串中的下标
+cout &lt;&lt; s.rfind(&quot;chicken&quot;) &lt;&lt; endl;       &#x2F;&#x2F; 结果是：9
+
+&#x2F;&#x2F; 4. 从字符串的末尾开始查找字符
+cout &lt;&lt; s.rfind(&#39;i&#39;) &lt;&lt; endl;             &#x2F;&#x2F; 结果是：18
+
+&#x2F;&#x2F; 5. 在该字符串中查找第一个属于字符串s的字符
+cout &lt;&lt; s.find_first_of(&quot;13br98&quot;) &lt;&lt; endl;  &#x2F;&#x2F; 结果是：4(&quot;b&quot;)
+
+&#x2F;&#x2F; 6. 在该字符串中查找第一个不属于字符串s的字符，先匹配dog，然后bird匹配不到，所以打印4
+cout &lt;&lt; s.find_first_not_of(&quot;hello dog 2006&quot;) &lt;&lt; endl; &#x2F;&#x2F; 结果是：4
+
+&#x2F;&#x2F; 7. 在该字符串从后往前查找第一个属于字符串s的字符
+cout &lt;&lt; s.find_last_of(&quot;13r98&quot;) &lt;&lt; endl;               &#x2F;&#x2F; 结果是：19
+
+&#x2F;&#x2F; 8. 在该字符串从后往前查找第一个不属于字符串s的字符，先匹配tac，然后空格匹配不到，所以打印21
+cout &lt;&lt; s.find_last_not_of(&quot;teac&quot;) &lt;&lt; endl;            &#x2F;&#x2F; 结果是：21</code></pre>
+
+<h3 id="9-string的排序"><a href="#9-string的排序" class="headerlink" title="9. string的排序"></a>9. string的排序</h3><ul>
+<li><code>sort(iterator iter1, iterator iter2)</code>  对[iter1, iter2)进行排序</li>
+<li><code>sort(s.begin(),s.end())</code></li>
+</ul>
+<pre class="language-c++" data-language="c++"><code class="language-c++">string s &#x3D; &quot;cdbaef&quot;;
+sort(s.begin(), s.begin() + 3);
+sort(s.begin(), s.end());
+cout &lt;&lt; &quot;s：&quot; &lt;&lt; s &lt;&lt; endl;    &#x2F;&#x2F;s：bcdaef</code></pre>
+
+<h3 id="10-string的分割-截取字符串"><a href="#10-string的分割-截取字符串" class="headerlink" title="10. string的分割/截取字符串"></a>10. string的分割/截取字符串</h3><ul>
+<li><code>str.substr(n)</code> 默认从下标为n处截取到尾</li>
+<li><code>str.substr(n, m)</code> 从n处开始截取m个字符</li>
+</ul>
+<h2 id="字符串string和int等类型的转换"><a href="#字符串string和int等类型的转换" class="headerlink" title="字符串string和int等类型的转换"></a>字符串string和int等类型的转换</h2><h3 id="1-int转string（int、long、unsigned、float、double、long-double）"><a href="#1-int转string（int、long、unsigned、float、double、long-double）" class="headerlink" title="1. int转string（int、long、unsigned、float、double、long double）"></a>1. int转string（int、long、unsigned、float、double、long double）</h3><ul>
+<li><code>to_string()</code></li>
+</ul>
+<h3 id="2-string转int"><a href="#2-string转int" class="headerlink" title="2. string转int"></a>2. string转int</h3><ul>
+<li><code>std::stoi()</code>、<code>stol()</code>、<code>stoll()</code> <strong>int、long、long long</strong></li>
+</ul>
+<pre class="language-c++" data-language="c++"><code class="language-c++">
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+ 
+int main()
+&#123;
+    std::string str1 &#x3D; &quot;45&quot;;
+    std::string str2 &#x3D; &quot;3.14159&quot;;
+    std::string str3 &#x3D; &quot;31337 with words&quot;;
+    std::string str4 &#x3D; &quot;words and 2&quot;;
+ 
+    int myint1 &#x3D; std::stoi(str1);
+    int myint2 &#x3D; std::stoi(str2);
+    int myint3 &#x3D; std::stoi(str3);
+
+ 
+    std::cout &lt;&lt; &quot;std::stoi(\&quot;&quot; &lt;&lt; str1 &lt;&lt; &quot;\&quot;) is &quot; &lt;&lt; myint1 &lt;&lt; &#39;\n&#39;;
+    std::cout &lt;&lt; &quot;std::stoi(\&quot;&quot; &lt;&lt; str2 &lt;&lt; &quot;\&quot;) is &quot; &lt;&lt; myint2 &lt;&lt; &#39;\n&#39;;
+    std::cout &lt;&lt; &quot;std::stoi(\&quot;&quot; &lt;&lt; str3 &lt;&lt; &quot;\&quot;) is &quot; &lt;&lt; myint3 &lt;&lt; &#39;\n&#39;;
+    &#x2F;&#x2F;结果
+&#x2F;&#x2F;     std::stoi(&quot;45&quot;) is 45
+&#x2F;&#x2F;     std::stoi(&quot;3.14159&quot;) is 3
+&#x2F;&#x2F;     std::stoi(&quot;31337 with words&quot;) is 31337
+&#125;</code></pre>
+</div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>啊哒XD</li><li class="post-copyright-link"><strong>Post link: </strong><a href="http://chaoxo.github.io/2021/03/24/c-string%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/" title="c++ string常用方法总结">http://chaoxo.github.io/2021/03/24/c-string%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul></section></article><div class="post-nav"><div class="post-nav-item"></div><div class="post-nav-item"><a class="post-nav-next" href="/2021/03/15/post/" rel="next" title="关于为什么要开始写Hexo博客的一些事"><span class="post-nav-text">关于为什么要开始写Hexo博客的一些事</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div class="hty-card" id="comment"><div class="comment-tooltip text-center"><span>要不要和我说些什么？</span><br></div></div></main><footer class="sidebar-translate" id="footer"><div class="copyright"><span>&copy; 2021 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> 啊哒XD</span></div><div class="powered"><span>Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v5.4.0</span><span class="footer-separator">|</span><span>Theme - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.5.2</span></div></footer><a class="hty-icon-button" id="goUp" aria-label="back-to-top" href="#"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-up-s-line"></use></svg><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round"></circle></svg></a></div></body></html>
